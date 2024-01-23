@@ -43,11 +43,32 @@ def price_in_distance(distance):
 	
 	while (remaining_distance > 0):
 		distance -= 500
-		price += KM_FEE
+		price += FEE_PER_500M
 ```
-Problem is with the loop, it has time complexity **O(n)** and could potentially be bottle neck later on. ( a lot of big distance delivieries )
+Problem is with the loop, it has time complexity ```O(n)``` and could potentially be bottle neck later on. ( a lot of big distance delivieries )
 
+When looking at it for the second time, I had an idea of division and using it with **COUNT * FEE** but was not sure how to handle remainders.
+After a while, and from a suggestion of **GPT** (yes, want to be clear, use of the logic to add 499 and // operator was from GPT) got some
+interesting results. Now time complexity is ```O(1)```.
+With this scale it's quite insignificant difference but I thought this was interesting, with such a small change to implementation, there
+was __MAJOR__ difference to performance in precentages atleast.
 
+```
+def price_in_distance(distance):
+	global price
+	
+	price += FIRST_KM_FEE
+	remaining_distance = distance - 1000
+	
+	if remaining_distance > 0:
+		count = max(0, (remaining_distance + 499) // 500)
+		price += count * FEE_PER_500M
+```
+
+I created tests to showcase this during my process of figuring this out. I was unaware of Pythons ```//``` operator and it's potential use case for this.
+If nothing else comes off of this assigment, I walk out with one more tool in my toolbox.
+
+```pytest -s tests/test_distance_func.py```
 
 
 
