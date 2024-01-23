@@ -1,9 +1,17 @@
 # Wolt Summer 2024 Engineering Internships - Joonas Mykkänen
 
 ### How to run
-```Download repo or zip```
+Download the package
+```git clone https://github.com/JoonasMykkanen/wolt-internship-2024.git```
+
+Install requirements
 ```pip3 -r requirements.txt```
+
+Run the App
 ```python3 run.py```
+
+### Or with Docker
+
 
 My submission for BACKEND roles with Python and FastAPI.
 
@@ -19,6 +27,28 @@ without breaking the App. Since subject only has one module, it seems a bit over
 * /app - Where everything ties together
 * /routes - set up routers to handle paths like '/api' or '/'
 * /services - Logic for routers to use, also could include databases, external api's etc
+
+
+
+## Notes
+
+### price_in_distance() function and it's two different states
+Ok, let me start with the original implementation...
+```
+def price_in_distance(distance):
+	global price
+	
+	price += FIRST_KM_FEE
+	remaining_distance = distance - 1000
+	
+	while (remaining_distance > 0):
+		distance -= 500
+		price += KM_FEE
+```
+Problem is with the loop, it has time complexity **O(n)** and could potentially be bottle neck later on. ( a lot of big distance delivieries )
+
+
+
 
 
 
