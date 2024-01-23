@@ -1,4 +1,4 @@
-# Wolt Summer 2024 Engineering Internships - Joonas Mykkänen
+# Wolt Summer 2024 Engineering Internships
 
 ### How to run
 
