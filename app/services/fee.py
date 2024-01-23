@@ -28,6 +28,7 @@ price = 0
 
 def calculate_fee(data):
 	global price
+	price = 0
 
 	# Early return if cart more than 200€
 	if data.cart_value >= FREE_DELIVERY_LIMIT:
@@ -46,7 +47,7 @@ def calculate_fee(data):
 	if price > MAX_FEE:
 		return MAX_FEE
 	
-	return price
+	return round(price)
 
 
 

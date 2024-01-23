@@ -49,15 +49,15 @@ class Data(BaseModel):
 		# NOTE: after looking into it, if input would be "time": "2024-01-15T13:00:00"
 		# it would still comply with ISO 8601 and be valid input but without timezone
 		# information, will fix it here since default was UTC
-		if input_time.tzinfo == None:
-			input_time = value.replace(tzinfo=timezone.utc)
+		# if input_time.tzinfo == None:
+			# input_time = value.replace(tzinfo=timezone.utc)
 
-		if input_time > current_time:
-			raise ValueError('Timestamp cannot be in future.. Timetravel not allowed!')
+		# if input_time > current_time:
+			# raise ValueError('Timestamp cannot be in future.. Timetravel not allowed!')
 
-		delta = current_time - input_time
-		if delta.days >= 1:
-			raise ValueError(f'Request too old, server time {current_time}')
+		# delta = current_time - input_time
+		# if delta.days >= 1:
+			# raise ValueError(f'Request too old, server time {current_time}')
 
 		return input_time
 
