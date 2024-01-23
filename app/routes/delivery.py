@@ -1,6 +1,7 @@
 from pydantic import field_validator
 from pydantic import BaseModel
 from datetime import datetime
+from datetime import timezone
 from fastapi import APIRouter
 
 from ..services.fee import calculate_fee
@@ -38,6 +39,29 @@ class Data(BaseModel):
 		if value <= 0:
 			raise ValueError('number_of_items cannot be equal to or lower than zero (0)')
 		return value
+	
+	# Checking that the request is not too old
+	@field_validator('time')
+	def test_time(cls, value):
+		current_time = datetime.now(timezone.utc)
+		input_time = value
+		
+		# NOTE: after looking into it, if input would be "time": "2024-01-15T13:00:00"
+		# it would still comply with ISO 8601 and be valid input but without timezone
+		# information, will fix it here since default was UTC
+		if input_time.tzinfo == None:
+			input_time = value.replace(tzinfo=timezone.utc)
+
+		if input_time > current_time:
+			raise ValueError('Timestamp cannot be in future.. Timetravel not allowed!')
+
+		delta = current_time - input_time
+		if delta.days >= 1:
+			raise ValueError(f'Request too old, server time {current_time}')
+
+		return input_time
+
+
 
 delivery_router = APIRouter()
 

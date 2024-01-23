@@ -23,7 +23,7 @@ def og_func(distance):
 	remaining_distance = distance - 1000
 	
 	while (remaining_distance > 0):
-		distance -= 500
+		remaining_distance -= 500
 		price += FEE_PER_500M
 
 
@@ -50,6 +50,4 @@ def test_functions(distance, description):
 
 	if og_duration > 0:
 		speed_improvement = ((og_duration - new_duration) / og_duration) * 100
-		print(f"Speed improvement for {description} ({distance}m): {speed_improvement:.2f}%")
-	else:
-		print(f"Cannot calculate speed improvement for {description} ({distance}m) due to zero duration")
+		print(f"\n Speed improvement for {description} ({distance}m): {speed_improvement:.2f}%")
