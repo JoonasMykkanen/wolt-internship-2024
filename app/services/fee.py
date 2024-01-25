@@ -22,7 +22,6 @@ def calculate_fee(data):
 	return round(fee)
 
 
-
 def add_surcharge(cart_value, fee):
 	if cart_value < SMALL_ORDER:
 		fee += SMALL_ORDER - cart_value
@@ -58,7 +57,7 @@ def item_fees(count, fee):
 def rush_multiplier(time, fee):
 	if time.weekday() != FRIDAY:
 		return fee
-
+	
 	if time.hour in range(RUSH_HOUR_START, RUSH_HOUR_END):
 		fee *= 1.2
 

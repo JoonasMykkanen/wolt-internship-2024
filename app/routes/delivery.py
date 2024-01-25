@@ -48,6 +48,7 @@ delivery_router = APIRouter()
 # 3) assuming no errors, it will return the calculated delivery fee
 #
 # RETURNS: delivery_fee (int) or error message (str)
+# NOTE: Except will catch anything that Pydantic and its HTTPExecption does not
 @delivery_router.post('/delivery_fee')
 def handle_delivery_fee(data: Data):
 	try:
