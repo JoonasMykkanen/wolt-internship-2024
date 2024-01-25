@@ -22,7 +22,10 @@ Originally was going to implement with Flask but since Pydantic models offered n
 FastAPI, decided to learn more of that. Have no prior experience with FastAPI except for Wolt's workshop @ Hive with it
 that was kindly hosted by you.
 
-### Program
+
+
+### The App __/api/delivery_fee__
+
 App has been divided into modules and these can be modified independetly from each other. You can add or remove them
 without breaking the App. Since subject only has one module, it seems a bit overkill.
 
@@ -32,6 +35,7 @@ without breaking the App. Since subject only has one module, it seems a bit over
 * /routes - set up routers to handle paths like '/api' or '/'
 * /services - Logic for routers to use, also could include databases, external api's etc...
 
+#### Will answer at ```/api/delivery_fee```
 
 
 ## Notes
@@ -49,13 +53,15 @@ def price_in_distance(distance):
 		distance -= 500
 		price += FEE_PER_500M
 ```
-Problem is with the loop, it has time complexity ```O(n)``` and could potentially be bottle neck later on. ( a lot of big distance delivieries )
+Problem is with the loop, it has time complexity ```O(n)``` and could potentially be bottleneck later on. ( a lot of big distance delivieries )
 
-When looking at it for the second time, I had an idea of division and using it with **COUNT * FEE** but was not sure how to handle remainders.
+When looking at it for the second time, I had an idea of division and using it like **COUNT * FEE** but was not sure how to handle remainders.
 After a while, and from a suggestion of **GPT** (yes, want to be clear, use of the logic to add 499 and // operator was from GPT) got some
 interesting results. Now time complexity is ```O(1)```.
 With this scale it's quite insignificant difference but I thought this was interesting, with such a small change to implementation, there
 was __MAJOR__ difference to performance in precentages atleast.
+
+Refactored function:
 
 ```
 def price_in_distance(distance):
@@ -75,10 +81,16 @@ If nothing else comes off of this assigment, I walk out with one more tool in my
 ```pytest -s tests/test_distance_func.py```
 
 With these, you can see that with bigger distances, performance gain can be up to 98%.. :D But that is with 500km delivery distance so not realistic.
-More realistic results are from tiny, small and normal ranges.
+More realistic results are from tiny, small and normal ranges. With small ranges the loop was sometimes faster, unsure why.
 Tiny ```from 15% to 40%```
 Small ```from -10% to 10%```
 Normal ```from 35% to 45%```
 
 ### Other tests
-For other tests I have included various test calls to the API.
+For other tests I am accessing my endpoint with a lot of different data, valid and invalid.
+
+
+
+### Other notes
+I do have other Python backend project's going on, they are on my public github and you should definitely check them out!
+I started my backend with Node @ Helsinki Universitys FullStack Open but am most interested on Python currently.
