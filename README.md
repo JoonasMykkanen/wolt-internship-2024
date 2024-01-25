@@ -1,6 +1,6 @@
 # Wolt Summer 2024 Engineering Internships
 
-### How to run
+### How to run (will need python3 instsalled)
 
 Download the package
 ```git clone https://github.com/JoonasMykkanen/wolt-internship-2024.git```
@@ -13,11 +13,7 @@ Run the App
 
 ### Or build and run with Docker
 
-Build the app
-```docker build -t wolt-2024-jmykkane .```
-
-Replace port with something like **8080** and run it
-```docker run -p [PORT]:8000 wolt-2024-jmykkane```
+```docker compose up --build```
 
 
 My submission for __BACKEND__ roles with Python and FastAPI.
