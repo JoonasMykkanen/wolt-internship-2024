@@ -94,3 +94,4 @@ For other tests I am accessing my endpoint with a lot of different data, valid a
 ### Other notes
 I do have other Python backend project's going on, they are on my public github and you should definitely check them out!
 I started my backend with Node @ Helsinki Universitys FullStack Open but am most interested on Python currently.
+```https://github.com/JoonasMykkanen```
