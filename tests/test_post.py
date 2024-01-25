@@ -48,7 +48,7 @@ client = TestClient(app)
     ({"cart_value": 5000, "delivery_distance": 100000, "number_of_items": 4, "time": datetime(2024, 1, 25, 16, 0, tzinfo=timezone.utc).isoformat()}, 1500),
 ])
 def test_valid_inputs(input, expected):
-	response = client.post('/api/', json=input)
+	response = client.post('/api/delivery_fee', json=input)
 
 	assert response.status_code == 200
 
@@ -72,6 +72,6 @@ def test_valid_inputs(input, expected):
     ({}, 422),
 ])
 def test_invalid_inputs(input, expected_status):
-    response = client.post('/api/', json=input)
+    response = client.post('/api/delivery_fee', json=input)
 	
     assert response.status_code == expected_status
