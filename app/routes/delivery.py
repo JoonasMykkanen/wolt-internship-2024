@@ -22,7 +22,6 @@ class Data(BaseModel):
 			raise ValueError('cart_value cannot be lower than zero (0)')
 		return value
 
-
 	# would be easy to add max distance like there is in real WOLT APP
 	# since delivieries dont run from Helsinki till Oulu.. :(
 	@field_validator('delivery_distance')
