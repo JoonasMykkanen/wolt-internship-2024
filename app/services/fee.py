@@ -1,21 +1,17 @@
 from ..utils.constants import *
 
+# Iterate over each rule adding up fee
+# RETURN fee (int)
 def calculate_fee(data):
-	# Early return if cart more than 200€
 	if data.cart_value >= FREE_DELIVERY_LIMIT:
 		return FREE_DELIVERY
 
-	# Iterate over each possible rule for fees and add sum them up
 	fee = 0
 	fee = add_surcharge(data.cart_value, fee)
 	fee = price_in_distance(data.delivery_distance, fee)
 	fee = item_fees(data.number_of_items, fee)
 	fee = rush_multiplier(data.time, fee)
 
-	# If went over the max limit, return max fee (15€)
-	# If calculating price would take some heavier math
-	# it should be checked before each function not to do
-	# any extra work but it would compromise clean code a bit
 	if fee > MAX_FEE:
 		return MAX_FEE
 	

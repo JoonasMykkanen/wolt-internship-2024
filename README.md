@@ -24,7 +24,7 @@ that was kindly hosted by you.
 
 
 
-### The App __/api/delivery_fee__
+### The App __/api/delivery-fee__
 
 App has been divided into modules and these can be modified independetly from each other. You can add or remove them
 without breaking the App. Since subject only has one module, it seems a bit overkill.
@@ -35,7 +35,7 @@ without breaking the App. Since subject only has one module, it seems a bit over
 * /routes - set up routers to handle paths like '/api' or '/'
 * /services - Logic for routers to use, also could include databases, external api's etc...
 
-#### Will answer at ```/api/delivery_fee```
+#### Will answer at ```/api/delivery-fee```
 
 
 ## Notes
