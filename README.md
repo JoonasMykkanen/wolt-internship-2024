@@ -32,7 +32,7 @@ that was kindly hosted by you.
 
 
 
-### The App __/api/delivery-fee__
+## Structure
 
 App has been divided into modules and these can be modified independetly from each other. You can add or remove them
 without breaking the App. Since subject only has one module, it seems a bit overkill.
