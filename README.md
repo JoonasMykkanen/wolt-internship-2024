@@ -37,6 +37,24 @@ without breaking the App. Since subject only has one module, it seems a bit over
 
 #### Will answer at ```/api/delivery-fee```
 
+Expected input
+```
+{"cart_value": [UNSIGNED INT], "delivery_distance": [UNSIGNED INT], "number_of_items": [UNSIGNED INT], "time": [ISO8601 TIMESTAMP]}
+```
+
+On success wil return following JSON object
+```
+{"delivery_fee": [INT]}
+```
+
+## Status Codes
+
+| Status Code | Description | Explanation
+| :--- | :--- |
+| 200 | `OK` | everything ok, will return valid delivery_fee
+| 404 | `NOT FOUND` | Invalid path, will return valid path for api
+| 422 | `UNPROCESSABLE_ENTITY` | Invalid input, will give specific error message
+| 500 | `INTERNAL SERVER ERROR` | Will not return specific info, something went badly wrong
 
 ## Notes
 

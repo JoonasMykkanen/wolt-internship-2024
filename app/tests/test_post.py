@@ -52,9 +52,9 @@ def test_valid_inputs(input, expected):
 
 	assert response.status_code == 200
 
-	delivery_fee = response.json()[0]
+	delivery_fee = response.json()
 
-	assert delivery_fee == {'deliver_fee': f'{expected}'}
+	assert delivery_fee == {'delivery_fee': f'{expected}'}
 
 
 
