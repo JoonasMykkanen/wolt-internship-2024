@@ -57,12 +57,14 @@ On success wil return following JSON object
 
 ## Status Codes
 
-| Status Code | Description | Explanation
+| Status Code | Description |
 | :--- | :--- |
-| 200 | `OK` | everything ok, will return valid delivery_fee
-| 404 | `NOT FOUND` | Invalid path, will return valid path for api
-| 422 | `UNPROCESSABLE_ENTITY` | Invalid input, will give specific error message
-| 500 | `INTERNAL SERVER ERROR` | Will not return specific info, something went badly wrong
+| 200 | `OK` |
+| 201 | `CREATED` |
+| 400 | `BAD REQUEST` |
+| 404 | `NOT FOUND` |
+| 500 | `INTERNAL SERVER ERROR` |
+
 
 ## Notes
 
