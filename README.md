@@ -3,20 +3,28 @@
 ### How to run (will need python3 instsalled)
 
 Download the package
-```git clone https://github.com/JoonasMykkanen/wolt-internship-2024.git```
+```
+git clone https://github.com/JoonasMykkanen/wolt-internship-2024.git
+```
 
 Install requirements
-```pip3 -r requirements.txt```
+```
+pip3 -r requirements.txt
+```
 
 Run the App
-```python3 run.py```
+```
+python3 run.py
+```
 
 ### Or build and run with Docker
 
-```docker compose up --build```
+```
+docker compose up --build
+```
 
 
-My submission for __BACKEND__ roles with Python and FastAPI.
+### My submission for __BACKEND__ roles with Python and FastAPI.
 
 Originally was going to implement with Flask but since Pydantic models offered nice validation and they are build with
 FastAPI, decided to learn more of that. Have no prior experience with FastAPI except for Wolt's workshop @ Hive with it
@@ -24,7 +32,7 @@ that was kindly hosted by you.
 
 
 
-### The App __/api/delivery-fee__
+## Structure
 
 App has been divided into modules and these can be modified independetly from each other. You can add or remove them
 without breaking the App. Since subject only has one module, it seems a bit overkill.
@@ -49,12 +57,13 @@ On success wil return following JSON object
 
 ## Status Codes
 
-| Status Code | Description | Explanation
+| Status Code | Description |
 | :--- | :--- |
-| 200 | `OK` | everything ok, will return valid delivery_fee
-| 404 | `NOT FOUND` | Invalid path, will return valid path for api
-| 422 | `UNPROCESSABLE_ENTITY` | Invalid input, will give specific error message
-| 500 | `INTERNAL SERVER ERROR` | Will not return specific info, something went badly wrong
+| 200 | `OK` |
+| 404 | `NOT FOUND` |
+| 422 | `UNPROCESSABLE ENTITY` |
+| 500 | `INTERNAL SERVER ERROR` |
+
 
 ## Notes
 
