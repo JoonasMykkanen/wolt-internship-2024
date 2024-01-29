@@ -57,7 +57,7 @@ def test_valid_inputs(input, expected):
 	assert delivery_fee == {'delivery_fee': f'{expected}'}
 
 
-
+# Testing wrong inputs in all fields and also providing
 @pytest.mark.parametrize("input, expected_status", [
     ({"cart_value": -100, "delivery_distance": 1000, "number_of_items": 4, "time": datetime(2024, 1, 25, 16, 0, tzinfo=timezone.utc).isoformat()}, 422),
     ({"cart_value": 100, "delivery_distance": -100, "number_of_items": 4, "time": datetime(2024, 1, 25, 16, 0, tzinfo=timezone.utc).isoformat()}, 422),
@@ -68,6 +68,8 @@ def test_valid_inputs(input, expected):
     ({"cart_value": 100, "delivery_distance": 1200, "number_of_items": -5, "time": 1703748000}, 422),
 
     ({"message": "wrong input"}, 422),
+
+    ("This is not JSON", 422),
 
     ({}, 422),
 ])

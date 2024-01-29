@@ -39,7 +39,7 @@ without breaking the App. Since subject only has one module, it seems a bit over
 
 Expected input
 ```
-{"cart_value": [UNSIGNED INT], "delivery_distance": [UNSIGNED INT], "number_of_items": [UNSIGNED INT], "time": [ISO8601 TIMESTAMP]}
+{"cart_value": [INT], "delivery_distance": [INT], "number_of_items": [INT], "time": [ISO8601 TIMESTAMP]}
 ```
 
 On success wil return following JSON object
@@ -106,6 +106,11 @@ Normal ```from 35% to 45%```
 
 ### Other tests
 For other tests I am accessing my endpoint with a lot of different data, valid and invalid.
+Can be run with just:
+```
+pytest
+```
+
 
 
 
